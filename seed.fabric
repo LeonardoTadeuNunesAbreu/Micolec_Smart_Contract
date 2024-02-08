@@ -1,0 +1,166 @@
+[     
+    { 
+        "query": "ReadParcels"
+    },
+    { 
+        "query": "ReadAuctions"
+    },
+    {
+        "query": "ReadBids"
+    },
+    {
+        "query":"LogisticOperatorDashboard",
+        "args": ["2"]
+    },
+    { 
+        "invoke": "DeleteAllParcels"
+    },
+    {
+        "invoke": "CloseExpiredAuctions",
+        "args": ["1"]
+    },
+    {
+        "invoke": "CreateParticipantWallet",
+        "args": [
+            {
+                "participant_id": 7,
+                "balance":100,
+                "usable_balance": 100,
+                "last_movement": "2023-07-10T13:30:00Z"
+            }
+        ]
+    },
+    {
+        "invoke": "SeedBid",
+        "args": [
+            [
+            {
+                "id": "1",
+                "date": "2023-07-10T13:30:00Z",
+                "bitcircle_amount": 10,
+                "money_amount": 99.0,
+                "status": "LowerBid",
+                "winner": false,
+                "auction_id": "1",
+                "courier_id": 2
+            },
+            {
+                "id": "2",
+                "date": "2023-07-06T05:00:00Z",
+                "bitcircle_amount": 20,
+                "money_amount": 95.0,
+                "status": "LowerBid",
+                "winner": false,
+                "auction_id": "3",
+                "courier_id": 4
+            }
+            ]
+        ]
+    },
+    {
+        "invoke":"SeedAuction",
+        "args":[
+            [
+                {
+                    "id": "1",
+                    "start_date": "2023-07-01T00:00:00Z",
+                    "end_date": "2023-07-10T13:30:00Z",
+                    "maximum_accepted_licitation": 100.0,
+                    "state": "OPEN",
+                    "participant_id": 1
+                },
+                {
+                    "id": "2",
+                    "start_date": "2023-07-06T00:00:00Z",
+                    "end_date": "2023-07-06T09:00:00Z",
+                    "maximum_accepted_licitation": 200.0,
+                    "state": "CLOSED NO BIDS",
+                    "participant_id": 2
+                },
+                {
+                    "id": "3",
+                    "start_date": "2023-07-06T00:00:00Z",
+                    "end_date": "2023-07-06T09:00:00Z",
+                    "maximum_accepted_licitation": 200.0,
+                    "state": "CLOSED",
+                    "participant_id": 2
+                }
+            ],
+            [
+                {
+                    "auction_id": "1",
+                    "parcel_id": 1
+                },
+                {
+                    "auction_id": "2",
+                    "parcel_id": 2
+                },
+                {
+                    "auction_id": "3",
+                    "parcel_id": 3
+                }
+            ]
+        ]
+    },
+    {
+        "invoke": "SeedParcel",
+        "args": [[
+            {
+                "id":1,
+                "state":"Pending",
+                "added_to_platform":"2023-07-31T00:00:00Z",
+                "required_delivery_date":"2023-08-31T00:00:00Z",
+                "pickup_postal_area":"9000",
+                "delivery_postal_area":"9050",
+                "notified_ce_option": false,
+                "bitcircle_reward":10,
+                "weight":"10",
+                "volume":10,
+                "logistic_operator_id":1,
+                "end_customer_id":2
+            },
+            {
+                "id":2,
+                "state":"Auction",
+                "added_to_platform":"2023-07-31T00:00:00Z",
+                "required_delivery_date":"2023-08-31T00:00:00Z",
+                "pickup_postal_area":"9000",
+                "delivery_postal_area":"9050",
+                "notified_ce_option": false,
+                "bitcircle_reward":10,
+                "weight":"10",
+                "volume":10,
+                "logistic_operator_id":1,
+                "end_customer_id":2
+            },
+            {
+                "id":3,
+                "state":"Delivery",
+                "added_to_platform":"2023-07-31T00:00:00Z",
+                "required_delivery_date":"2023-08-31T00:00:00Z",
+                "pickup_postal_area":"9000",
+                "delivery_postal_area":"9050",
+                "notified_ce_option": false,
+                "bitcircle_reward":10,
+                "weight":"10",
+                "volume":10,
+                "logistic_operator_id":1,
+                "end_customer_id":2
+            },
+            {
+                "id":4,
+                "state":"Delivered",
+                "added_to_platform":"2023-07-31T00:00:00Z",
+                "required_delivery_date":"2023-08-31T00:00:00Z",
+                "pickup_postal_area":"9000",
+                "delivery_postal_area":"9050",
+                "notified_ce_option": false,
+                "bitcircle_reward":10,
+                "weight":"10",
+                "volume":10,
+                "logistic_operator_id":1,
+                "end_customer_id":2
+            }
+    ]]
+    }
+]
